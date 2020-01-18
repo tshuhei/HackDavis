@@ -4,51 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignIn1Activity">
+    tools:context=".SignIn5_5Activity">
 
     <TextView
-        android:id="@+id/email"
+        android:id="@+id/bio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="70dp"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="100dp"
-        android:text="@string/email"
+        android:text="@string/Bio"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/password"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toEndOf="@+id/email"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
-
     <EditText
-        android:id="@+id/inputEmail"
+        android:id="@+id/inputBio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:ems="10"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="@+id/email"
-        app:layout_constraintStart_toEndOf="@+id/email" />
-
-    <EditText
-        android:id="@+id/inputPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="@+id/password"
-        app:layout_constraintStart_toEndOf="@+id/password" />
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/bio"
+        app:layout_constraintTop_toTopOf="@+id/bio" />
 
     <Button
         android:id="@+id/next"

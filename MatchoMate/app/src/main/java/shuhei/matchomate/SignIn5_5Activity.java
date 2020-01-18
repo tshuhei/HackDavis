@@ -8,25 +8,26 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class InitialViewActivity extends AppCompatActivity {
-    Button start;
+public class SignIn5_5Activity extends AppCompatActivity {
+    Button next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_initial_view);
+        setContentView(R.layout.activity_sign_in5_5);
+        setTitle(R.string.signin);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        start = (Button)findViewById(R.id.start);
-        start.setOnClickListener(new View.OnClickListener() {
+        next = (Button)findViewById(R.id.next);
+        next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loadLoginActivity();
+                loadSignIn6Activity();
             }
         });
     }
 
-    private void loadLoginActivity(){
-        Intent intent = new Intent(this, LogInActivity.class);
+    private void loadSignIn6Activity(){
+        Intent intent = new Intent(this, SignIn6Activity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
