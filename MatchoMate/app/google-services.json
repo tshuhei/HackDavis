@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "873976400407",
+    "firebase_url": "https://matchomate.firebaseio.com",
+    "project_id": "matchomate",
+    "storage_bucket": "matchomate.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873976400407:android:83862750e25fd74969ea52",
+        "android_client_info": {
+          "package_name": "shuhei.matchomate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "873976400407-p1f87vsr1vgsrd5seeqak92a67gbp44p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdmm_h60Ly1EgC1ikoeIXXmkT2LIeFy_Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "873976400407-p1f87vsr1vgsrd5seeqak92a67gbp44p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
