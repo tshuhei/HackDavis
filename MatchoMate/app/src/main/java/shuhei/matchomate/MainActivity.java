@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -16,8 +17,14 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener, MyProfileFragment.OnFragmentInteractionListener
 , LikedListFragment.OnFragmentInteractionListener, MatchingFragment.OnFragmentInteractionListener, RewardFragment.OnFragmentInteractionListener, ProfileFragment.OnFragmentInteractionListener {
@@ -25,6 +32,9 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
     private FirebaseUser mFirebaseUser;
     private DatabaseReference mDatabase;
     private String mUserId;
+    private List<String> matchList;
+    private List<String> likeUserList;
+    private List<String> likedUserList;
     BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener;
 
     @Override
@@ -40,6 +50,9 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        matchList = new ArrayList<String>();
+        likeUserList = new ArrayList<String>();
+        likedUserList = new ArrayList<String>();
 
         if(mFirebaseUser != null){
             mUserId = mFirebaseUser.getUid();
@@ -65,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
                         return true;
                     case R.id.navigation_match:
                         toolbar.setTitle("Match");
-                        fragment = new MatchingFragment();
+                        fragment = new MatchingFragment(matchList);
                         loadFragment(fragment);
                         return true;
                     case R.id.navigation_liked:
@@ -83,6 +96,40 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
                 return true;
             }
         };
+
+        mDatabase.child("users").child(mUserId).addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                likeUserList = (List<String>)dataSnapshot.child("likeUserId").getValue();
+                likedUserList = (List<String>)dataSnapshot.child("likedUserId").getValue();
+                int size = likeUserList.size();
+                for(int i=0; i<size; i++){
+                    if(likedUserList.contains(likeUserList.get(i))){
+                        matchList.add(likeUserList.get(i));
+                    }
+                }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         loadFragment(new HomeFragment());
