@@ -6,12 +6,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -31,6 +35,9 @@ public class RewardFragment extends Fragment {
     private FirebaseUser mFirebaseUser;
     private DatabaseReference mDatabase;
     private String mUserId;
+    private List<RewardItem> rewardItemList;
+    private ListView rewardListView;
+    private RewardAdapter rewardAdapter;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -48,7 +55,7 @@ public class RewardFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment RewardFragment.
+     * @return A new instance of fragment RewardFragment.\
      */
     // TODO: Rename and change types and number of parameters
     public static RewardFragment newInstance(String param1, String param2) {
@@ -74,6 +81,39 @@ public class RewardFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_reward, container, false);
+        rewardItemList = new ArrayList<RewardItem>();
+        rewardListView = (ListView)view.findViewById(R.id.likedListView);
+        RewardItem rewardItem1 = new RewardItem("Protein", "23",R.string.protein_des, R.drawable.supplement);
+        RewardItem rewardItem2 = new RewardItem("Organic Protein", "34",R.string.organic_protein_des, R.drawable.supplement);
+        RewardItem rewardItem3 = new RewardItem("EAA", "12",R.string.eaa_des, R.drawable.supplement);
+        RewardItem rewardItem4 = new RewardItem("BCAA", "15",R.string.creatine_des, R.drawable.supplement);
+        RewardItem rewardItem5 = new RewardItem("Creatine", "15",R.string.creatine_des, R.drawable.supplement);
+        RewardItem rewardItem6 = new RewardItem("Glutamine", "15",R.string.glutamine_des, R.drawable.supplement);
+        RewardItem rewardItem7 = new RewardItem("HMB", "12",R.string.hmb_des, R.drawable.supplement);
+        RewardItem rewardItem8 = new RewardItem("Energy Drink", "6",R.string.energy_drink_des, R.drawable.supplement);
+        RewardItem rewardItem9 = new RewardItem("Wrist Wrap", "8",R.string.wrist_wrap_des, R.drawable.dumbbell);
+        RewardItem rewardItem10 = new RewardItem("Training Tube", "8",R.string.training_tube_des, R.drawable.dumbbell);
+        RewardItem rewardItem11 = new RewardItem("Lifting Belt", "8",R.string.lifting_belt_des, R.drawable.dumbbell);
+        RewardItem rewardItem12 = new RewardItem("Ab-Roller", "25",R.string.ab_roller_des, R.drawable.dumbbell);
+        RewardItem rewardItem13 = new RewardItem("Push-Up Bars", "25",R.string.push_up_bars_des, R.drawable.dumbbell);
+
+        rewardItemList.add(rewardItem1);
+        rewardItemList.add(rewardItem2);
+        rewardItemList.add(rewardItem3);
+        rewardItemList.add(rewardItem4);
+        rewardItemList.add(rewardItem5);
+        rewardItemList.add(rewardItem6);
+        rewardItemList.add(rewardItem7);
+        rewardItemList.add(rewardItem8);
+        rewardItemList.add(rewardItem9);
+        rewardItemList.add(rewardItem10);
+        rewardItemList.add(rewardItem11);
+        rewardItemList.add(rewardItem12);
+        rewardItemList.add(rewardItem13);
+
+        rewardAdapter = new RewardAdapter(view.getContext(), rewardItemList);
+        rewardListView.setAdapter(rewardAdapter);
+
         return view;
     }
 
