@@ -1,14 +1,276 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ConstrainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/no_name"
+                    android:textSize="36sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/userPhoto"
+                    app:layout_constraintTop_toBottomOf="@+id/userPhoto" />
+
+                <ImageView
+                    android:id="@+id/userPhoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/profile"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/thumbUp"
+                    android:layout_width="105dp"
+                    android:layout_height="101dp"
+                    android:layout_marginTop="116dp"
+                    android:src="@drawable/like"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/userPhoto"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/gymLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gym_location"
+                    android:textSize="20sp"
+                    tools:layout_editor_absoluteX="8dp"
+                    tools:layout_editor_absoluteY="43dp" />
+
+                <TextView
+                    android:id="@+id/exerciseField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/exercise_field"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@+id/gymLocation"
+                    app:layout_constraintTop_toBottomOf="@+id/gymLocation" />
+
+                <TextView
+                    android:id="@+id/experience"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/experience"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@+id/exerciseField"
+                    app:layout_constraintTop_toBottomOf="@+id/exerciseField" />
+
+                <TextView
+                    android:id="@+id/age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/age"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@+id/experience"
+                    app:layout_constraintTop_toBottomOf="@+id/experience" />
+
+                <TextView
+                    android:id="@+id/height"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/height"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@+id/age"
+                    app:layout_constraintTop_toBottomOf="@+id/age" />
+
+                <TextView
+                    android:id="@+id/weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/weight"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@+id/height"
+                    app:layout_constraintTop_toBottomOf="@+id/height" />
+
+                <TextView
+                    android:id="@+id/Gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/gender"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bio"
+                    android:textSize="20sp"
+                    tools:layout_editor_absoluteX="8dp"
+                    tools:layout_editor_absoluteY="253dp" />
+
+                <TextView
+                    android:id="@+id/userGymLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="TextView"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@+id/userGender"
+                    app:layout_constraintTop_toBottomOf="@+id/userGender" />
+
+                <TextView
+                    android:id="@+id/userGender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="85dp"
+                    android:layout_marginLeft="85dp"
+                    android:text="TextView"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@+id/Gender"
+                    app:layout_constraintTop_toTopOf="@+id/Gender" />
+
+                <TextView
+                    android:id="@+id/userExerciseField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="TextView"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@+id/userGymLocation"
+                    app:layout_constraintTop_toBottomOf="@+id/userGymLocation" />
+
+                <TextView
+                    android:id="@+id/userExperience"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="TextView"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@+id/userExerciseField"
+                    app:layout_constraintTop_toBottomOf="@+id/userExerciseField" />
+
+                <TextView
+                    android:id="@+id/userAge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="TextView"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@+id/userExperience"
+                    app:layout_constraintTop_toBottomOf="@+id/userExperience" />
+
+                <TextView
+                    android:id="@+id/userFt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="TextView"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@+id/userAge"
+                    app:layout_constraintTop_toBottomOf="@+id/userAge" />
+
+                <TextView
+                    android:id="@+id/userIn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:text="TextView"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@+id/textView"
+                    app:layout_constraintTop_toTopOf="@+id/textView" />
+
+                <TextView
+                    android:id="@+id/userWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="TextView"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@+id/userFt"
+                    app:layout_constraintTop_toBottomOf="@+id/userFt" />
+
+                <TextView
+                    android:id="@+id/userBio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="TextView"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/userWeight"
+                    app:layout_constraintTop_toBottomOf="@+id/userWeight" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginLeft="9dp"
+                    android:text="'"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@+id/userFt"
+                    tools:layout_editor_absoluteY="148dp" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:text="@string/lbs"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@+id/userWeight"
+                    app:layout_constraintTop_toTopOf="@+id/userWeight" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:text='"'
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@+id/userIn"
+                    app:layout_constraintTop_toTopOf="@+id/userIn" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
