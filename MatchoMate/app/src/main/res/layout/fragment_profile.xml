@@ -26,8 +26,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="@string/no_name"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textSize="36sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/userPhoto"
@@ -62,8 +65,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="@string/gym_location"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/Gender"
                     app:layout_constraintTop_toBottomOf="@+id/Gender" />
 
@@ -72,8 +78,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="@string/exercise_field"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/gymLocation"
                     app:layout_constraintTop_toBottomOf="@+id/gymLocation" />
 
@@ -82,8 +91,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="@string/experience"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/exerciseField"
                     app:layout_constraintTop_toBottomOf="@+id/exerciseField" />
 
@@ -92,8 +104,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="@string/age"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/experience"
                     app:layout_constraintTop_toBottomOf="@+id/experience" />
 
@@ -102,8 +117,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="@string/height"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/age"
                     app:layout_constraintTop_toBottomOf="@+id/age" />
 
@@ -112,8 +130,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="@string/weight"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/height"
                     app:layout_constraintTop_toBottomOf="@+id/height" />
 
@@ -124,8 +145,11 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="@string/gender"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -134,8 +158,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="@string/bio"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/weight"
                     app:layout_constraintTop_toBottomOf="@+id/weight" />
 
@@ -144,8 +171,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="TextView"
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/userGender"
                     app:layout_constraintTop_toBottomOf="@+id/userGender" />
 
@@ -155,8 +184,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="85dp"
                     android:layout_marginLeft="85dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="TextView"
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/Gender"
                     app:layout_constraintTop_toTopOf="@+id/Gender" />
 
@@ -165,8 +196,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="TextView"
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/userGymLocation"
                     app:layout_constraintTop_toBottomOf="@+id/userGymLocation" />
 
@@ -175,8 +208,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="TextView"
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/userExerciseField"
                     app:layout_constraintTop_toBottomOf="@+id/userExerciseField" />
 
@@ -185,8 +220,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="TextView"
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/userExperience"
                     app:layout_constraintTop_toBottomOf="@+id/userExperience" />
 
@@ -195,8 +232,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="TextView"
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/userAge"
                     app:layout_constraintTop_toBottomOf="@+id/userAge" />
 
@@ -206,8 +245,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginLeft="12dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="TextView"
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/textView"
                     app:layout_constraintTop_toTopOf="@+id/textView" />
 
@@ -216,8 +257,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="TextView"
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/userFt"
                     app:layout_constraintTop_toBottomOf="@+id/userFt" />
 
@@ -229,8 +272,10 @@
                     android:layout_marginEnd="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="8dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="TextView"
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/userWeight"
@@ -242,8 +287,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginLeft="12dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="'"
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/userFt"
                     app:layout_constraintTop_toTopOf="@+id/userFt" />
 
@@ -253,8 +300,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginLeft="12dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="@string/lbs"
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/userWeight"
                     app:layout_constraintTop_toTopOf="@+id/userWeight" />
 
@@ -264,10 +313,38 @@
                     android:layout_height="30dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginLeft="8dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:text='"'
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/userIn"
                     app:layout_constraintTop_toTopOf="@+id/userIn" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="y.o."
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/userAge"
+                    app:layout_constraintTop_toTopOf="@+id/userAge" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="year(s)"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/userExperience"
+                    app:layout_constraintTop_toTopOf="@+id/userExperience" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

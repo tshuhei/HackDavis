@@ -13,8 +13,10 @@
         android:layout_marginStart="70dp"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="80dp"
+        android:fontFamily="sans-serif-condensed"
         android:text="@string/age"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,8 +25,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
+        android:fontFamily="sans-serif-condensed"
         android:text="@string/height"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/age"
         app:layout_constraintTop_toBottomOf="@+id/age" />
 
@@ -33,8 +37,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
+        android:fontFamily="sans-serif-condensed"
         android:text="@string/weight"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/height"
         app:layout_constraintTop_toBottomOf="@+id/height" />
 
@@ -68,8 +74,10 @@
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:fontFamily="sans-serif-condensed"
         android:text="@string/lbs"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/inputWeight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/inputWeight"
@@ -82,8 +90,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:fontFamily="sans-serif-condensed"
         android:text="@string/ft"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/spinner_ft"
         app:layout_constraintStart_toEndOf="@+id/spinner_ft"
         app:layout_constraintTop_toTopOf="@+id/spinner_ft" />
@@ -94,8 +104,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:fontFamily="sans-serif-condensed"
         android:text="@string/in"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/spinner_in"
         app:layout_constraintStart_toEndOf="@+id/spinner_in"
         app:layout_constraintTop_toTopOf="@+id/spinner_in" />
