@@ -97,19 +97,21 @@
 
     <Spinner
         android:id="@+id/spinner_ft"
-        android:layout_width="70dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+        android:entries="@array/txt_ft_arr"
         app:layout_constraintBottom_toBottomOf="@+id/height"
         app:layout_constraintStart_toEndOf="@+id/height" />
 
     <Spinner
         android:id="@+id/spinner_in"
-        android:layout_width="71dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+        android:entries="@array/txt_in_arr"
         app:layout_constraintBottom_toBottomOf="@+id/spinner_ft"
         app:layout_constraintStart_toEndOf="@+id/ft" />
 
