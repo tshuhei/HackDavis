@@ -7,4 +7,13 @@
     <string name="login">Login</string>
     <string name="signin">Signin</string>
     <string name="home">Home</string>
+    <string name="match_string">Matching</string>
+    <string name="name_string">- Name</string>
+    <string name="gym_location_string">- Gym Location</string>
+    <string name="exercise_field_string">- Exercise Field</string>
+    <string name="workout_experience_string">- Workout Experience</string>
+    <string name="match_image">match_image</string>
+    <string name="item_name_string">- Item Name</string>
+    <string name="description_string">- Description</string>
+    <string name="number_of_points_string">15 Points</string>
 </resources>
