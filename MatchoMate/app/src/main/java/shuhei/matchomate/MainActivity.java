@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -128,5 +129,13 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+        if(keyCode == KeyEvent.KEYCODE_BACK){
+            return true;
+        }
+        return false;
     }
 }

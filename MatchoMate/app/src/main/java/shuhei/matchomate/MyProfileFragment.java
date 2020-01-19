@@ -6,12 +6,20 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 /**
@@ -35,6 +43,17 @@ public class MyProfileFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private ImageView myPhoto;
+    private TextView myGender;
+    private TextView myName;
+    private TextView myGymLocation;
+    private TextView myExerciseField;
+    private TextView myExperience;
+    private TextView myAge;
+    private TextView myFt;
+    private TextView myIn;
+    private TextView myWeight;
+    private TextView myBio;
 
     private OnFragmentInteractionListener mListener;
 
@@ -73,7 +92,69 @@ public class MyProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_my_profile, container, false);
+        View view = inflater.inflate(R.layout.fragment_my_profile, container, false );
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseUser = mFirebaseAuth.getCurrentUser();
+        mUserId = mFirebaseUser.getUid();
+        myGender = (TextView)view.findViewById(R.id.myGender);
+        myName = (TextView)view.findViewById(R.id.myName);
+        myGymLocation = (TextView)view.findViewById(R.id.myGymLocation);
+        myExerciseField = (TextView)view.findViewById(R.id.myExercideField);
+        myExperience = (TextView)view.findViewById(R.id.myExperience);
+        myAge = (TextView)view.findViewById(R.id.myAge);
+        myFt = (TextView)view.findViewById(R.id.myFt);
+        myIn = (TextView)view.findViewById(R.id.myIn);
+        myWeight = (TextView)view.findViewById(R.id.myWeight);
+        myBio = (TextView)view.findViewById(R.id.myBio);
+
+        mDatabase.child("users").child(mUserId).addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                String gender = (String) dataSnapshot.child("gender").getValue();
+                String gymLocation = (String) dataSnapshot.child("gymLocation").getValue();
+                String exerciseField = (String) dataSnapshot.child("exerciseField").getValue();
+                String nickname = (String) dataSnapshot.child("nickname").getValue();
+                String experience = (String) dataSnapshot.child("experience").getValue();
+                String weight = (String)dataSnapshot.child("weight").getValue();
+                String ft = (String)dataSnapshot.child("ft").getValue();
+                String in = (String)dataSnapshot.child("in").getValue();
+                String bio = (String)dataSnapshot.child("bio").getValue();
+                String age = (String)dataSnapshot.child("age").getValue();
+                myGender.setText(gender);
+                myGymLocation.setText(gymLocation);
+                myName.setText(nickname);
+                myExerciseField.setText(exerciseField);
+                myExperience.setText(experience);
+                myWeight.setText(weight);
+                myFt.setText(ft);
+                myIn.setText(in);
+                myBio.setText(bio);
+                myAge.setText(age);
+
+
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         return view;
     }
 

@@ -48,7 +48,12 @@
     <string name="match">Match</string>
     <string name="liked">Liked</string>
     <string name="reward">Reward</string>
-    <string name="gender">Gender</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
+    <string name="gym_location">Gym Location:</string>
+    <string name="exercise_field">Exercise Field</string>
+    <string name="experience">Experience</string>
+    <string name="no_name">No Name</string>
+    <string name="bio">Bio</string>
+    <string name="gender">Gender</string>
 </resources>

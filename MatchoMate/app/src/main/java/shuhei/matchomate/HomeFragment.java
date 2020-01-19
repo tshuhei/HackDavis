@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -146,6 +149,20 @@ public class HomeFragment extends Fragment {
         });
         homeAdapter = new HomeAdapter(context,userList);
         userListView.setAdapter(homeAdapter);
+        userListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String id = (String) userList.get(i).getUserId();
+                ProfileFragment profileFragment = new ProfileFragment(id);
+                FragmentManager fragmentManager = getChildFragmentManager();
+                fragmentManager.beginTransaction().add(R.id.childLayout,profileFragment).commit();
+                userListView.setEnabled(false);
+                userListView.setVisibility(View.INVISIBLE);
+
+            }
+        });
+
+
         return view;
     }
 

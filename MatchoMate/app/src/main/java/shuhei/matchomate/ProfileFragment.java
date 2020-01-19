@@ -6,12 +6,23 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -35,11 +46,27 @@ public class ProfileFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private String userId;;
+    private ImageView userPhoto;
+    private ImageView thumbUp;
+    private TextView userGender;
+    private TextView userName;
+    private TextView userGymLocation;
+    private TextView userExerciseField;
+    private TextView userExperience;
+    private TextView userAge;
+    private TextView userFt;
+    private TextView userIn;
+    private TextView userWeight;
+    private TextView userBio;
+    private List<String> userLikedUserId;
+    private List<String> myLikeUserId;
 
     private OnFragmentInteractionListener mListener;
 
-    public ProfileFragment() {
+    public ProfileFragment(String userId) {
         // Required empty public constructor
+        this.userId = userId;
     }
 
     /**
@@ -52,7 +79,7 @@ public class ProfileFragment extends Fragment {
      */
     // TODO: Rename and change types and number of parameters
     public static ProfileFragment newInstance(String param1, String param2) {
-        ProfileFragment fragment = new ProfileFragment();
+        ProfileFragment fragment = new ProfileFragment(null);
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -73,7 +100,117 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_profile, container, false );
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseUser = mFirebaseAuth.getCurrentUser();
+        mUserId = mFirebaseUser.getUid();
+        userGender = (TextView)view.findViewById(R.id.userGender);
+        userName = (TextView)view.findViewById(R.id.userName);
+        userGymLocation = (TextView)view.findViewById(R.id.userGymLocation);
+        userExerciseField = (TextView)view.findViewById(R.id.userExerciseField);
+        userExperience = (TextView)view.findViewById(R.id.userExperience);
+        userAge = (TextView)view.findViewById(R.id.userAge);
+        userFt = (TextView)view.findViewById(R.id.userFt);
+        userIn = (TextView)view.findViewById(R.id.userIn);
+        userWeight = (TextView)view.findViewById(R.id.userWeight);
+        userBio = (TextView)view.findViewById(R.id.userBio);
+        thumbUp = (ImageView)view.findViewById(R.id.thumbUp);
+        mDatabase.child("users").child(mUserId).addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                myLikeUserId = (List<String>)dataSnapshot.child("likeUserId").getValue();
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        mDatabase.child("users").child(userId).addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                String gender= (String) dataSnapshot.child("gender").getValue();
+                String gymLocation = (String) dataSnapshot.child("gymLocation").getValue();
+                String exerciseField = (String) dataSnapshot.child("exerciseField").getValue();
+                String nickname = (String) dataSnapshot.child("nickname").getValue();
+                String experience = (String) dataSnapshot.child("experience").getValue();
+                String weight = (String)dataSnapshot.child("weight").getValue();
+                String ft = (String)dataSnapshot.child("ft").getValue();
+                String in = (String)dataSnapshot.child("in").getValue();
+                String bio = (String)dataSnapshot.child("introduction").getValue();
+                String age = (String)dataSnapshot.child("age").getValue();
+                userLikedUserId = (List<String>)dataSnapshot.child("likedUserId").getValue();
+                userGender.setText(gender);
+                userGymLocation.setText(gymLocation);
+                userName.setText(nickname);
+                userExerciseField.setText(exerciseField);
+                userExperience.setText(experience);
+                userWeight.setText(weight);
+                userFt.setText(ft);
+                userIn.setText(in);
+                userBio.setText(bio);
+                userAge.setText(age);
+
+
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        thumbUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(userLikedUserId == null){
+                    userLikedUserId = new ArrayList<String>();
+                }
+                if(myLikeUserId == null){
+                    myLikeUserId = new ArrayList<String>();
+                }
+                if(!userLikedUserId.contains(mUserId)){
+                    userLikedUserId.add(mUserId);
+                }
+                if(!myLikeUserId.contains(userId)){
+                    myLikeUserId.add(userId);
+                }
+                mDatabase.child("users").child(mUserId).child("items").child("likeUserId").setValue(myLikeUserId);
+                mDatabase.child("users").child(userId).child("items").child("likedUserId").setValue(userLikedUserId);
+            }
+        });
         return view;
     }
 
