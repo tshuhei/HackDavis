@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/avatarView"
         android:layout_width="158dp"
         android:layout_height="110dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +21,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="7dp"
         android:text="@string/name_string"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/avatarView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -32,7 +32,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="7dp"
         android:text="@string/gym_location_string"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/avatarView"
         app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <TextView
@@ -43,7 +43,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="7dp"
         android:text="@string/exercise_field_string"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/avatarView"
         app:layout_constraintTop_toBottomOf="@+id/gymLocation" />
 
     <TextView
@@ -54,6 +54,6 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="7dp"
         android:text="@string/workout_experience_string"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/avatarView"
         app:layout_constraintTop_toBottomOf="@+id/exerciseField" />
 </androidx.constraintlayout.widget.ConstraintLayout>

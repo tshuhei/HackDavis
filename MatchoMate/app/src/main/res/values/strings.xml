@@ -56,4 +56,5 @@
     <string name="no_name">No Name</string>
     <string name="bio">Bio</string>
     <string name="gender">Gender</string>
+    <string name="chooseYourAvateor">Choose your avatar</string>
 </resources>

@@ -116,7 +116,11 @@ public class MatchingFragment extends Fragment {
                     String weight = (String)dataSnapshot.child("items").child("weight").getValue();
                     String gender = (String)dataSnapshot.child("items").child("gender").getValue();
                     String userId = (String)dataSnapshot.child("items").child("userId").getValue();
-                    UserItem userItem = new UserItem(age,bio,exerciseField,experience,ft,gymLocation,in,nickname,userType,weight,userId,gender);
+                    Long avatar = (Long)dataSnapshot.child("items").child("avatar").getValue();
+                    if(avatar == null){
+                        avatar = (long)R.drawable.profile;
+                    }
+                    UserItem userItem = new UserItem(age,bio,exerciseField,experience,ft,gymLocation,in,nickname,userType,weight,userId,gender, avatar);
                     userList.add(userItem);
                     matchAdapter = new MatchAdapter(context, userList);
                     matchListView.setAdapter(matchAdapter);

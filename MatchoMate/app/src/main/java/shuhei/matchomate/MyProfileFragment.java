@@ -44,6 +44,7 @@ public class MyProfileFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private ImageView myPhoto;
+    private ImageView avatarView;
     private TextView myGender;
     private TextView myName;
     private TextView myGymLocation;
@@ -107,6 +108,7 @@ public class MyProfileFragment extends Fragment {
         myIn = (TextView)view.findViewById(R.id.myIn);
         myWeight = (TextView)view.findViewById(R.id.myWeight);
         myBio = (TextView)view.findViewById(R.id.myBio);
+        avatarView = (ImageView)view.findViewById(R.id.myPhoto);
 
         mDatabase.child("users").child(mUserId).addChildEventListener(new ChildEventListener() {
             @Override
@@ -121,6 +123,10 @@ public class MyProfileFragment extends Fragment {
                 String in = (String)dataSnapshot.child("in").getValue();
                 String bio = (String)dataSnapshot.child("bio").getValue();
                 String age = (String)dataSnapshot.child("age").getValue();
+                Long avatar = (Long)dataSnapshot.child("avatar").getValue();
+                if(avatar == null){
+                    avatar = (long)R.drawable.profile;
+                }
                 myGender.setText(gender);
                 myGymLocation.setText(gymLocation);
                 myName.setText(nickname);
@@ -131,7 +137,7 @@ public class MyProfileFragment extends Fragment {
                 myIn.setText(in);
                 myBio.setText(bio);
                 myAge.setText(age);
-
+                avatarView.setImageResource(new Integer(avatar.toString()));
 
             }
 

@@ -49,6 +49,7 @@ public class ProfileFragment extends Fragment {
     private String userId;;
     private ImageView userPhoto;
     private ImageView thumbUp;
+    private ImageView avatarView;
     private TextView userGender;
     private TextView userName;
     private TextView userGymLocation;
@@ -117,6 +118,8 @@ public class ProfileFragment extends Fragment {
         userWeight = (TextView)view.findViewById(R.id.userWeight);
         userBio = (TextView)view.findViewById(R.id.userBio);
         thumbUp = (ImageView)view.findViewById(R.id.thumbUp);
+        avatarView = (ImageView)view.findViewById(R.id.userPhoto);
+
         mDatabase.child("users").child(mUserId).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
@@ -156,6 +159,10 @@ public class ProfileFragment extends Fragment {
                 String in = (String)dataSnapshot.child("in").getValue();
                 String bio = (String)dataSnapshot.child("introduction").getValue();
                 String age = (String)dataSnapshot.child("age").getValue();
+                Long avatar = (Long)dataSnapshot.child("avatar").getValue();
+                if(avatar == null){
+                    avatar = (long)R.drawable.profile;
+                }
                 userLikedUserId = (List<String>)dataSnapshot.child("likedUserId").getValue();
                 userGender.setText(gender);
                 userGymLocation.setText(gymLocation);
@@ -167,7 +174,7 @@ public class ProfileFragment extends Fragment {
                 userIn.setText(in);
                 userBio.setText(bio);
                 userAge.setText(age);
-
+                avatarView.setImageResource(new Integer(avatar.toString()));
 
             }
 

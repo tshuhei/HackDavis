@@ -17,9 +17,18 @@ public class UserItem {
     private String gender;
     private List<String> likeUserId;
     private List<String> likedUserId;
+    private Long avatar;
+
+    public Long getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(Long avatar) {
+        this.avatar = avatar;
+    }
 
     public UserItem(String age, String bio, String exerciseField, String experience, String ft, String gymLocation, String in, String nickname
-    , String userType, String weight, String userId, String gender){
+    , String userType, String weight, String userId, String gender, Long avatar){
         this.age = age;
         this.bio = bio;
         this.exerciseField = exerciseField;
@@ -32,6 +41,7 @@ public class UserItem {
         this.weight = weight;
         this.userId = userId;
         this.gender = gender;
+        this.avatar = avatar;
     }
 
     public String getAge() {

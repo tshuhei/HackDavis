@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -42,10 +43,13 @@ public class HomeAdapter extends BaseAdapter {
         TextView gymLocation = (TextView)view.findViewById(R.id.gymLocation);
         TextView exerciseField = (TextView)view.findViewById(R.id.exerciseField);
         TextView workoutExperience = (TextView)view.findViewById(R.id.workoutExperience);
+        ImageView avatarView = (ImageView)view.findViewById(R.id.avatarView);
         name.setText(userList.get(i).getNickname());
         gymLocation.setText(userList.get(i).getGymLocation());
         exerciseField.setText(userList.get(i).getExerciseField());
         workoutExperience.setText(userList.get(i).getExperience());
+        Long myint = userList.get(i).getAvatar();
+        avatarView.setImageResource(new Integer(userList.get(i).getAvatar().toString()));
         return view;
     }
 }

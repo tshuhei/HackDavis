@@ -7,7 +7,7 @@
     tools:context=".InitialViewActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/avatarView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,9 +22,9 @@
         android:layout_width="262dp"
         android:layout_height="144dp"
         android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/avatarView"
+        app:layout_constraintStart_toStartOf="@+id/avatarView"
+        app:layout_constraintTop_toBottomOf="@+id/avatarView"
         app:srcCompat="@drawable/logo" />
 
     <Button
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/start"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/avatarView"
+        app:layout_constraintStart_toStartOf="@+id/avatarView"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
