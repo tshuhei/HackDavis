@@ -25,7 +25,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textMultiLine|textPersonName"
         android:maxLines="10"
         android:singleLine="false"
         app:layout_constraintStart_toEndOf="@+id/bio"

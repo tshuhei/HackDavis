@@ -32,9 +32,9 @@
         android:id="@+id/avatar1"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/avatar1" />
@@ -43,8 +43,7 @@
         android:id="@+id/avatar2"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
+        app:layout_constraintEnd_toStartOf="@+id/avatar3"
         app:layout_constraintStart_toEndOf="@+id/avatar1"
         app:layout_constraintTop_toTopOf="@+id/avatar1"
         app:srcCompat="@drawable/avatar2" />
@@ -53,9 +52,9 @@
         android:id="@+id/avatar3"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        app:layout_constraintStart_toEndOf="@+id/avatar2"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/avatar2"
         app:srcCompat="@drawable/avatar3" />
 
@@ -63,8 +62,10 @@
         android:id="@+id/avatar4"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
         android:layout_marginTop="32dp"
-        app:layout_constraintStart_toStartOf="@+id/avatar1"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/avatar1"
         app:srcCompat="@drawable/avatar4" />
 
@@ -74,6 +75,9 @@
         android:layout_height="100dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        app:layout_constraintEnd_toStartOf="@+id/avatar6"
         app:layout_constraintStart_toEndOf="@+id/avatar4"
         app:layout_constraintTop_toTopOf="@+id/avatar4"
         app:srcCompat="@drawable/avatar5" />
@@ -82,9 +86,9 @@
         android:id="@+id/avatar6"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        app:layout_constraintStart_toEndOf="@+id/avatar5"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/avatar5"
         app:srcCompat="@drawable/avatar6" />
 </androidx.constraintlayout.widget.ConstraintLayout>

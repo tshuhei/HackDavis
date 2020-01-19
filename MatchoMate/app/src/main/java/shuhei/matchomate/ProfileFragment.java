@@ -157,7 +157,7 @@ public class ProfileFragment extends Fragment {
                 String weight = (String)dataSnapshot.child("weight").getValue();
                 String ft = (String)dataSnapshot.child("ft").getValue();
                 String in = (String)dataSnapshot.child("in").getValue();
-                String bio = (String)dataSnapshot.child("introduction").getValue();
+                String bio = (String)dataSnapshot.child("bio").getValue();
                 String age = (String)dataSnapshot.child("age").getValue();
                 Long avatar = (Long)dataSnapshot.child("avatar").getValue();
                 if(avatar == null){
