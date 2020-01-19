@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/home"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/profile"
+        android:title="@string/profile" />
+    <item
+        android:id="@+id/navigation_match"
+        android:icon="@drawable/match"
+        android:title="@string/match" />
+    <item
+        android:id="@+id/navigation_liked"
+        android:icon="@drawable/like"
+        android:title="@string/liked" />
+    <item
+        android:id="@+id/navigation_reward"
+        android:icon="@drawable/reward"
+        android:title="@string/reward" />
+</menu>

@@ -23,6 +23,8 @@ public class SignIn2Activity extends AppCompatActivity {
     private Button next;
     private RadioGroup userTypeRadioGroup;
     private String strUserType;
+    private RadioGroup genderRadioGroup;
+    private String strGender;
 
 
     @Override
@@ -33,6 +35,7 @@ public class SignIn2Activity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         next = (Button)findViewById(R.id.next);
         userTypeRadioGroup = (RadioGroup)findViewById(R.id.userTypeRadioGroup);
+        genderRadioGroup = (RadioGroup)findViewById(R.id.genderRadioGroup);
 
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
@@ -43,6 +46,8 @@ public class SignIn2Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mDatabase.child("users").child(mUserId).child("items").child("userType").setValue(strUserType);
+                mDatabase.child("users").child(mUserId).child("items").child("gender").setValue(strGender);
+                mDatabase.child("users").child(mUserId).child("items").child("userId").setValue(mUserId);
                 loadSignIn3Activity();
             }
         });
@@ -52,6 +57,14 @@ public class SignIn2Activity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 RadioButton userType = (RadioButton)findViewById(i);
                 strUserType = userType.getText().toString();
+            }
+        });
+
+        genderRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                RadioButton gender = (RadioButton)findViewById(i);
+                strGender = gender.getText().toString();
             }
         });
     }
