@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
                         return true;
                     case R.id.navigation_liked:
                         toolbar.setTitle("Liked");
-                        fragment = new LikedListFragment();
+                        fragment = new LikedListFragment(likedUserList);
                         loadFragment(fragment);
                         return true;
                     case R.id.navigation_reward:

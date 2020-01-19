@@ -6,12 +6,24 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -31,6 +43,11 @@ public class LikedListFragment extends Fragment {
     private FirebaseUser mFirebaseUser;
     private DatabaseReference mDatabase;
     private String mUserId;
+    private ListView likedListView;
+    private List<UserItem> userList;
+    private List<String> likedUserList;
+    private Context context;
+    private LikedListAdapter likedListAdapter;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -38,7 +55,8 @@ public class LikedListFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public LikedListFragment() {
+    public LikedListFragment(List<String> likedUserList) {
+        this.likedUserList = likedUserList;
         // Required empty public constructor
     }
 
@@ -52,7 +70,7 @@ public class LikedListFragment extends Fragment {
      */
     // TODO: Rename and change types and number of parameters
     public static LikedListFragment newInstance(String param1, String param2) {
-        LikedListFragment fragment = new LikedListFragment();
+        LikedListFragment fragment = new LikedListFragment(null);
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -74,6 +92,72 @@ public class LikedListFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_liked_list, container, false);
+        context = view.getContext();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        userList = new ArrayList<UserItem>();
+        likedListView = (ListView)view.findViewById(R.id.likedListView);
+
+        mDatabase.child("users").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                String userName = (String)dataSnapshot.getKey();
+                if(likedUserList == null){
+                    likedUserList = new ArrayList<String>();
+                }
+                if(likedUserList.contains(userName)){
+                    String age = (String)dataSnapshot.child("items").child("age").getValue();
+                    String bio = (String)dataSnapshot.child("items").child("bio").getValue();
+                    String exerciseField = (String)dataSnapshot.child("items").child("exerciseField").getValue();
+                    String experience = (String)dataSnapshot.child("items").child("experience").getValue();
+                    String ft = (String)dataSnapshot.child("items").child("ft").getValue();
+                    String gymLocation = (String)dataSnapshot.child("items").child("gymLocation").getValue();
+                    String in = (String)dataSnapshot.child("items").child("in").getValue();
+                    String nickname = (String)dataSnapshot.child("items").child("nickname").getValue();
+                    String userType = (String)dataSnapshot.child("items").child("userType").getValue();
+                    String weight = (String)dataSnapshot.child("items").child("weight").getValue();
+                    String gender = (String)dataSnapshot.child("items").child("gender").getValue();
+                    String userId = (String)dataSnapshot.child("items").child("userId").getValue();
+                    UserItem userItem = new UserItem(age,bio,exerciseField,experience,ft,gymLocation,in,nickname,userType,weight,userId,gender);
+                    userList.add(userItem);
+                    likedListAdapter = new LikedListAdapter(context, userList);
+                    likedListView.setAdapter(likedListAdapter);
+                }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+        likedListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String id = (String) userList.get(i).getUserId();
+                ProfileFragment profileFragment = new ProfileFragment(id);
+                FragmentManager fragmentManager = getChildFragmentManager();
+                fragmentManager.beginTransaction().add(R.id.childLayout,profileFragment).commit();
+                likedListView.setEnabled(false);
+                likedListView.setVisibility(View.INVISIBLE);
+
+            }
+        });
         return view;
     }
 
