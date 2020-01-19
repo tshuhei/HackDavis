@@ -98,39 +98,63 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
             }
         };
 
-        mDatabase.child("users").child(mUserId).addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                likeUserList = (List<String>)dataSnapshot.child("likeUserId").getValue();
-                likedUserList = (List<String>)dataSnapshot.child("likedUserId").getValue();
-                int size = likeUserList.size();
-                for(int i=0; i<size; i++){
-                    if(likedUserList.contains(likeUserList.get(i))){
-                        matchList.add(likeUserList.get(i));
+        if(mUserId != null){
+            mDatabase.child("users").child(mUserId).addChildEventListener(new ChildEventListener() {
+                @Override
+                public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                    likeUserList = (List<String>)dataSnapshot.child("likeUserId").getValue();
+                    likedUserList = (List<String>)dataSnapshot.child("likedUserId").getValue();
+                    if(likeUserList == null){
+                        likeUserList = new ArrayList<String>();
+                    }
+                    if(likedUserList == null){
+                        likedUserList = new ArrayList<String>();
+                    }
+                    matchList = new ArrayList<String>();
+                    int size = likeUserList.size();
+                    for(int i=0; i<size; i++){
+                        if(likedUserList.contains(likeUserList.get(i))){
+                            matchList.add(likeUserList.get(i));
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                @Override
+                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                    likeUserList = (List<String>)dataSnapshot.child("likeUserId").getValue();
+                    likedUserList = (List<String>)dataSnapshot.child("likedUserId").getValue();
+                    if(likeUserList == null){
+                        likeUserList = new ArrayList<String>();
+                    }
+                    if(likedUserList == null){
+                        likedUserList = new ArrayList<String>();
+                    }
+                    matchList = new ArrayList<String>();
+                    int size = likeUserList.size();
+                    for(int i=0; i<size; i++){
+                        if(likedUserList.contains(likeUserList.get(i))){
+                            matchList.add(likeUserList.get(i));
+                        }
+                    }
+                }
 
-            }
+                @Override
+                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
 
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+                }
 
-            }
+                @Override
+                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                }
 
-            }
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+                }
+            });
+        }
 
-            }
-        });
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         loadFragment(new HomeFragment());
